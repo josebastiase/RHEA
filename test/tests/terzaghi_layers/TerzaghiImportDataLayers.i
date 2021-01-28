@@ -41,25 +41,25 @@
   [K_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/K.data
+    data_file = K.data
   []
   # Porosity
   [P_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/p.data
+    data_file = p.data
   []
   # Bulk modulus
   [L_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/L.data
+    data_file = L.data
   []
   # Shear modulus
   [G_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/G.data
+    data_file = G.data
   []
 []
 
@@ -215,7 +215,6 @@
 []
 
 [Outputs]
-  file_base = gold/TerzaghisImportDataLayers
   exodus = true
   [csv]
     type = CSV

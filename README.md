@@ -38,6 +38,8 @@ PERHAPS JOSE WANTS TO REPLACE THIS FIG WITH THE NICE ONE IN THE PAPER.  IN THIS 
 
 ## Consolidation of a heterogeneous sample
 
+The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`.
+
 JOSE
 
 
