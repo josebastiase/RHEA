@@ -7,9 +7,12 @@ InputParameters
 validParams<IsotropicElasticModulusFromVar>()
 {
   InputParameters params = validParams<ComputeElasticityTensorBase>();
-  params.addClassDescription("Compute a constant isotropic elasticity tensor at the qp from data file.");
-  params.addRequiredCoupledVar("bulk_modulus", "The bulk modulus for the material.");
-  params.addRequiredCoupledVar("shear_modulus", "The shear modulus of the material.");
+  params.addClassDescription("Compute a isotropic, heterogeneous elasticity tensor using the "
+			     "spatially-varying bulk_modulus and shear_modulus values.");
+  params.addRequiredCoupledVar("bulk_modulus", "The bulk modulus for the material, which can "
+			       "vary throughout the mesh using RHEA's python workflow");
+  params.addRequiredCoupledVar("shear_modulus", "The shear modulus of the material, which can "
+			       "vary throughout the mesh using RHEA's python workflow");
   return params;
 }
 

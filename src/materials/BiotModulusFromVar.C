@@ -11,10 +11,12 @@ validParams<BiotModulusFromVar>()
       "biot_coefficient", 1.0, "biot_coefficient>=0 & biot_coefficient<=1", "Biot coefficient");
   params.addRangeCheckedParam<Real>(
       "fluid_bulk_modulus", 2.0E9, "fluid_bulk_modulus>0", "Fluid bulk modulus");
-  params.addRequiredCoupledVar("bulk_modulus", "The bulk modulus for the material.");
+  params.addRequiredCoupledVar("bulk_modulus", "The drained bulk modulus of the porous skeleton.");
   params.addPrivateParam<std::string>("pf_material_type", "biot_modulus");
   params.addClassDescription("Computes the Biot Modulus, which is assumed to be constant for all "
-                             "time.  Sometimes 1 / BiotModulus is called storativity");
+                             "time.  Sometimes 1 / BiotModulus is called storativity.  Note that "
+			     "because RHEA allows the bulk_modulus and porosity to vary throughout "
+			     "the mesh, the Biot Modulus can be heterogeneous");
   return params;
 }
 

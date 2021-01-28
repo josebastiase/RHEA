@@ -8,9 +8,11 @@ template <>
 InputParameters validParams<IsotropicElasticModulusFromVar>();
 
 /**
- * Compute isotropic elastic tensor defines an elasticity tensor material for
- * isotropic materials from data file. This may be coupled with the python workflow to
- * allocate data at qp of the mesh. From bulk modulus and shear modulus.
+ * Defines an elastic tensor for the model.
+ * The elastic tensor is assumed isotropic, so it is defined by its bulk modulus and shear modulus.
+ * However, these moduli may vary throughout the model (they are MOOSE AuxVariables) so the resulting
+ * elastic tensor is heterogeneous - different at each point in the model.
+ * The bulk modulus and shear modulus may be defined using RHEA's python workflow
  */
 
 class IsotropicElasticModulusFromVar : public ComputeElasticityTensorBase

@@ -5,12 +5,16 @@
 /**
  * Material designed to provide a time-invariant
  * Biot Modulus, M, where
- * 1 / M = (1 - alpha) * (alpha - phi) * C + phi / Kf .
+ * 1 / M = (1 - alpha) * (alpha - phi) / K + phi / Kf .
  * Here
- * alpha = Biot coefficient (assumed constant)
- * phi = initial value of porosity
- * K = drained bulk modulus of the porous material from var
- * Kf = fluid bulk modulus (assumed constant)
+ * alpha = Biot coefficient (assumed time and space independent)
+ * phi = initial value of porosity (can vary throughout the mesh)
+ * K = drained bulk modulus of the porous skeleton (can vary throughout the mesh)
+ * Kf = fluid bulk modulus (assumed time and space independent)
+ *
+ * Note that RHEA allows the result to be heterogeneous, ie, different at each point in the mesh.
+ * This is because the drained bulk modulus and the porosity may be defined using RHEA's python
+ * workflow.
  */
 class BiotModulusFromVar : public PorousFlowMaterialVectorBase
 {
@@ -29,7 +33,7 @@ protected:
   /// Fluid bulk modulus
   const Real _fluid_bulk_modulus;
 
-  /// Solid bulk modulus
+  /// Drained bulk modulus of the porous skeleton
   const VariableValue & _bulk_modulus;
 
   /// porosity at the nodes or quadpoints.  Only the initial value is ever used
