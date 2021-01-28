@@ -1,4 +1,4 @@
-#Model to try import spatially distribuited data to MOOSE. Imports .data files for hydraulic conductivity, porosity, bulk modulus and shear modulus.
+# Terzaghi model using spatially-distribuited data for hydraulic conductivity, porosity, bulk modulus and shear modulus.
 
 # K: Hydraulic conductivity
 # P: Porosity
@@ -10,7 +10,7 @@
   type = GeneratedMesh
   dim = 2
   nx = 1
-  ny = 99 # Discretization -1
+  ny = 99 # So that the number of nodes = 100
   xmin = -1
   xmax = 1
   ymin = 0
@@ -41,25 +41,25 @@
   [K_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/K.data
+    data_file = K.data
   []
   # Porosity
   [P_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/p.data
+    data_file = p.data
   []
   # Bulk modulus
   [L_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/L.data
+    data_file = L.data
   []
   # Shear modulus
   [G_fcn]
     type = PiecewiseMulticonstant
     direction = 'left right'
-    data_file = Data/G.data
+    data_file = G.data
   []
 []
 
@@ -270,12 +270,12 @@
   [dt]
     type = FunctionValuePostprocessor
     outputs = console
-    function = if(t<0,1,10)
+    function = 'min(100, max(1, 0.5 * t))'
   []
 []
 
 [Preconditioning]
-  [mumps_is_best_for_parallel_jobs]
+  [default]
     type = SMP
     full = true
   []
@@ -294,9 +294,9 @@
 []
 
 [Outputs]
-  execute_on = 'timestep_end'
-  file_base = gold/TerzaghisImportData
-  [csv]
+  [./csv]
     type = CSV
-  []
+    sync_times = '0 10 50 200 1000'
+    sync_only = true
+  [../]
 []

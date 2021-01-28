@@ -1,0 +1,11 @@
+[Tests]
+  [./Terzaghi]
+    type = 'CSVDiff'
+    input = 'TerzaghiImportData.i'
+    cli_args = 'Executioner/end_time=10'
+    csvdiff = 'TerzaghiImportData_csv.csv'
+    requirement = "RHEA shall be able to solve consolidation problems with homogeneous material properties"
+    issues = '#2'
+    design = 'README.md'
+  [../]
+[]
