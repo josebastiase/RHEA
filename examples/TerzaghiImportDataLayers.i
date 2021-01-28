@@ -203,8 +203,6 @@
   [mumps_is_best_for_parallel_jobs]
     type = SMP
     full = true
-    petsc_options_iname = '-pc_type -pc_factor_mat_solver_package'
-    petsc_options_value = ' lu       mumps'
   []
 []
 
