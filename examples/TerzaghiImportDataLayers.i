@@ -113,19 +113,21 @@
 # Boundary conditions. System open only at the top
 [BCs]
   [no_x_disp]
-   type = PresetBC
-   variable = disp_x
-   value = 0
-   boundary = 'left right'
+    type = DirichletBC
+    preset = true
+    variable = disp_x
+    value = 0
+    boundary = 'left right'
   []
   [no_y_disp]
-    type = PresetBC
+    type = DirichletBC
+    preset = true
     variable = disp_y
     value = 0
     boundary = 'bottom'
   []
   [top_drained]
-  type = DirichletBC
+    type = DirichletBC
     variable = porepressure
     value = 0
     boundary = 'top'
