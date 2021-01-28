@@ -2,6 +2,10 @@
 
 DESCRIPTION OF RHEA BY JOSE
 
+RHEA is an App of the [MOOSE framework](https://github.com/idaholab/moose).  To use RHEA, you will need to have [installed MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html), which can take some time.
+
+RHEA is released under the GNU Lesser General Public License Version 2.1.  See the [LICENSE](LICENSE) file for details.
+
 # Compilation
 
 BY JOSE
