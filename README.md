@@ -1,5 +1,4 @@
-RHEA
-=====
+![Image](images/RHEA1.png)
 
 DESCRIPTION OF RHEA BY JOSE
 
