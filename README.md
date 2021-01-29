@@ -93,7 +93,7 @@ The RHEA files for this scenario are found in `test/tests/terzaghi/`. There are 
 
 3. `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
 
-![Image](test/tests/terzaghi/terzaghi_p.png)
+![Image](test/tests/terzaghi/Terzaghis_problem.png)
 
 ### Consolidation of a heterogeneous sample
 
