@@ -53,7 +53,7 @@ If RHEA has compiled successfully, you should see various output, ending with th
 
 ### Terzaghi's problem
 
-In Terzaghi’s original theoretical work, which was inspired by the measurements of delayed deformations in a compression test on a clay sample, the pore fluid and the soil particles were both assumed to be incompressible, so that the only mechanism of deformation was a rearrangement of the particles. In modern presentations, these assumptions are no longer made, and this generalised theory will be used here. The relevant parameters used in this model are listed here
+In Terzaghi’s original theoretical work (von Terzaghi, 1923), which was inspired by the measurements of delayed deformations in a compression test on a clay sample, the pore fluid and the soil particles were both assumed to be incompressible, so that the only mechanism of deformation was a rearrangement of the particles. In modern presentations, these assumptions are no longer made, and this generalised theory will be used here. The relevant parameters used in this model are listed here
 
 Hydraulic properties
 
@@ -85,7 +85,7 @@ System's characteristics
 | System's depth | h | 1.0E2 | m |
 | time| t | - | s |
 
-The RHEA files for this scenario are found in `test/tests/terzaghi/`.  There are three important files:
+The RHEA files for this scenario are found in `test/tests/terzaghi/`. There are three important files:
 
 1.-  `test/tests/terzaghi/Workflow_TerzaghiImportData.ipynb`.  This is a [Jupyter notebook](https://jupyter.org/) that creates files that define the hydraulic conductivity, porosity, bulk modulus and shear modulus throughout the Terzaghi soil sample.  In this case, these properties are homogeneous.  The files created are `K.data`, `p.data`, `L.data` and `G.data` (which are part of this repository, so you don't need to create them yourself).
 
@@ -97,8 +97,29 @@ The RHEA files for this scenario are found in `test/tests/terzaghi/`.  There are
 
 ### Consolidation of a heterogeneous sample
 
-The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`.
+This is a heterogenous model where the Terzaghi's problems is applied in one dimensional sample. The aim is to test Rhea's import data material properties with different layers and sharp gradients. Contrasting values of hydraulic conductivities are considerated
 
-JOSE
+| Parameter | Symbol | Value | Unit | 
+| :--- | :---: | :---:         |:---| 
+| Hydraulic conductivity layer 1 | k | 1.0E-4  | m/s |
+| Hydraulic conductivity layer 2 | k | 1.0E-8  | m/s |
 
+The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. There are three important files:
 
+1.-  `test/tests/terzaghi/Workflow_TerzaghiImportDataLayers.ipynb`. [Jupyter notebook](https://jupyter.org/) that creates the files containig the different properties that are going to be allocated by RHEA. The files created are `K.data`, `p.data`, `L.data` and `G.data`.
+
+2.- `test/tests/terzaghi/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `rhea-opt -i TerzaghiImportData.i`.
+
+3.- `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the semi analytical solution derived by (Hickson et al., 2009).
+
+![Image](test/tests/terzaghi_layers/TerzaghisImportDataLayers.png)
+
+## Support
+
+If you encounter difficulties at any step, you can ask for help on the [MOOSE GitHub](https://github.com/idaholab/moose/discussions) discussions.
+
+## References
+
+von Terzaghi, K.: Die Berechnug der Durchlassigkeit des Tones aus dem Verlauf der hydromechanischen Spannungserscheinungen, Sitzungs-470ber. Akad. Wiss.(Wien). Math.-Naturwiss. Kl., Abt. Iia, 132, 125–138, 1923
+
+Hickson, R., Barry, S., and Mercer, G.: Critical times in multilayer diffusion. Part 1: Exact solutions, International Journal of Heat and MassTransfer, 52, 5776–5783, 2009.
