@@ -1,9 +1,13 @@
-#Model to try import spatially distribuited data to MOOSE. Imports .data files for hydraulic conductivity, porosity, bulk modulus and shear modulus.
+# Terzaghi model using spatially-distribuited data for hydraulic conductivity, porosity, bulk modulus and shear modulus.
+# It is assumed that the notebook Workflow_TerzaghiImportDataLayers.ipynb has created files containing the spatial distribution of the hydraulic conductivity, porosity, bulk modulus and shear modulus.
+# In this case the hydraulic conductivity, porosity, bulk modulus and shear modulus correspond to a layered medium with spatially-varying hydraulic conductivity
 
 # K: Hydraulic conductivity
 # P: Porosity
 # L: Bulk modulus
 # G: Shear modulus
+
+# Smaller time-step sizes yield better agreement with the analytical solution
 
 # Generate quadratic mesh
 [Mesh]
@@ -200,23 +204,35 @@
 []
 
 [Preconditioning]
-  [mumps_is_best_for_parallel_jobs]
+  [smp]
     type = SMP
     full = true
+  []
+[]
+
+[Postprocessors]
+  [dt]
+    type = FunctionValuePostprocessor
+    outputs = console
+    function = 'min(1E6, max(1E4, 0.1 * t))' # note: smaller values yields better agreement with the analytical solution
   []
 []
 
 [Executioner]
   type = Transient
   solve_type = Newton
-  start_time = 0
   end_time = 7E6
-  dt = 1E4
+  [./TimeStepper]
+    type = PostprocessorDT
+    postprocessor = dt
+    dt = 1E4
+  [../]
 []
 
 [Outputs]
-  exodus = true
   [csv]
     type = CSV
+    sync_times = '0 1E4 1E5 3E5 1E6 2E6 3E6 5E6 7E6'
+    sync_only = true
   []
 []

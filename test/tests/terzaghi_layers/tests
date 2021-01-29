@@ -1,0 +1,11 @@
+[Tests]
+  [./Terzaghi_Layers]
+    type = 'CSVDiff'
+    input = 'TerzaghiImportDataLayers.i'
+    cli_args = 'Executioner/end_time=1E4'
+    csvdiff = 'TerzaghiImportDataLayers_csv_pp_0001.csv'
+    requirement = "RHEA shall be able to solve consolidation problems with material properties representing layered materials"
+    issues = '#2'
+    design = 'README.md'
+  [../]
+[]

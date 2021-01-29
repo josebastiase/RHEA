@@ -1,4 +1,6 @@
 # Terzaghi model using spatially-distribuited data for hydraulic conductivity, porosity, bulk modulus and shear modulus.
+# It is assumed that the notebook Workflow_TerzaghiImportData.ipynb has created files containing the spatial distribution of the hydraulic conductivity, porosity, bulk modulus and shear modulus.
+# In this case the hydraulic conductivity, porosity, bulk modulus and shear modulus are actually homogeneous, meaning this problem exactly describes Terzaghi consolidation
 
 # K: Hydraulic conductivity
 # P: Porosity
