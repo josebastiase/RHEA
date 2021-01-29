@@ -93,7 +93,10 @@ The RHEA files for this scenario are found in `test/tests/terzaghi/`. There are 
 
 3. `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
 
-![Image](test/tests/terzaghi/Terzaghis_problem.png)
+<p align="center">
+ <img src="test/tests/terzaghi/Terzaghis_problem.png">
+</p>
+
 
 ### Consolidation of a heterogeneous sample
 
@@ -110,7 +113,9 @@ The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. The
 
 2. `test/tests/terzaghi_layers/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportDataLayers.i`.
 
-![Image](test/tests/terzaghi_layers/TerzaghisImportDataLayers.png)
+<p align="center">
+ <img src="test/tests/terzaghi_layers/TerzaghisImportDataLayers.png" width="12" height="3">
+</p>
 
 ## Support
 
