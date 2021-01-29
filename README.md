@@ -114,7 +114,7 @@ The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. The
 2. `test/tests/terzaghi_layers/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportDataLayers.i`.
 
 <p align="center">
- <img src="test/tests/terzaghi_layers/TerzaghisImportDataLayers.png" width="12" height="3">
+ <img src="test/tests/terzaghi_layers/Terzaghis_problem_layers.png">
 </p>
 
 ## Support
