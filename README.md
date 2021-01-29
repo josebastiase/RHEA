@@ -123,3 +123,7 @@ If you encounter difficulties at any step, you can ask for help on the [MOOSE Gi
 von Terzaghi, K.: Die Berechnug der Durchlassigkeit des Tones aus dem Verlauf der hydromechanischen Spannungserscheinungen, Sitzungs-470ber. Akad. Wiss.(Wien). Math.-Naturwiss. Kl., Abt. Iia, 132, 125–138, 1923
 
 Hickson, R., Barry, S., and Mercer, G.: Critical times in multilayer diffusion. Part 1: Exact solutions, International Journal of Heat and MassTransfer, 52, 5776–5783, 2009.
+
+## Cite
+
+paper
