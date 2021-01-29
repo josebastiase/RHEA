@@ -7,7 +7,7 @@
 
 ## About
 
-RHEA (Real HEterogeneity App), is an open-source fully coupled finite element application capable of including element-resolution hydro-geomechanical properties in coupled simulations. The code was developed by [José Bastías](https://ingeo.agw.kit.edu/21_99.php) and [Andy Wilkins](https://research.csiro.au/mgt/andy-wilkins/) in collaboration between Karlsruhe Institute of Technology (KIT) and Commonwealth Scientific and Industrial Research Organisatio (CSIRO).
+RHEA (Real HEterogeneity App), is an open-source fully coupled finite element application capable of including element-resolution hydro-geomechanical properties in coupled simulations. The code was developed by [José Bastías](https://ingeo.agw.kit.edu/21_99.php) with small additions from [Andy Wilkins](https://research.csiro.au/mgt/andy-wilkins/) in a collaboration between Karlsruhe Institute of Technology (KIT) and the Commonwealth Scientific and Industrial Research Organisatio (CSIRO).
 
 RHEA is a MOOSE based application, for more information visit [MOOSE Framework](https://mooseframework.inl.gov/). To use RHEA, you will need to have [installed MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html), which can take some time.
 
@@ -51,9 +51,9 @@ If RHEA has compiled successfully, you should see various output, ending with th
 
 ## Examples
 
-### Terzaghi's problem
+### Terzaghi's consolidation problem
 
-In Terzaghi’s original theoretical work (von Terzaghi, 1923), which was inspired by the measurements of delayed deformations in a compression test on a clay sample, the pore fluid and the soil particles were both assumed to be incompressible, so that the only mechanism of deformation was a rearrangement of the particles. In modern presentations, these assumptions are no longer made, and this generalised theory will be used here. The relevant parameters used in this model are listed here
+In Terzaghi’s original theoretical work (von Terzaghi, 1923), which was inspired by the measurements of delayed deformations in a compression test on a clay sample, the pore fluid and the soil particles were both assumed to be incompressible, so that the only mechanism of deformation was a rearrangement of the particles. In modern presentations, these assumptions are no longer made, and this generalised theory will be used here. The relevant parameters used in this model are as follows.
 
 Hydraulic properties
 
@@ -87,30 +87,28 @@ System's characteristics
 
 The RHEA files for this scenario are found in `test/tests/terzaghi/`. There are three important files:
 
-1.-  `test/tests/terzaghi/Workflow_TerzaghiImportData.ipynb`.  This is a [Jupyter notebook](https://jupyter.org/) that creates files that define the hydraulic conductivity, porosity, bulk modulus and shear modulus throughout the Terzaghi soil sample.  In this case, these properties are homogeneous.  The files created are `K.data`, `p.data`, `L.data` and `G.data` (which are part of this repository, so you don't need to create them yourself).
+1.  `test/tests/terzaghi/Workflow_TerzaghiImportData.ipynb`.  This is a [Jupyter notebook](https://jupyter.org/) that creates files that define the hydraulic conductivity, porosity, bulk modulus and shear modulus throughout the Terzaghi soil sample.  In this case, these properties are homogeneous.  The files created are `K.data`, `p.data`, `L.data` and `G.data` (which are part of this repository, so you don't need to create them yourself).
 
-2.- `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `rhea-opt -i TerzaghiImportData.i`.
+2. `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportData.i`.
 
-3.- `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
+3. `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
 
 ![Image](test/tests/terzaghi/terzaghi_p.png)
 
 ### Consolidation of a heterogeneous sample
 
-This is a heterogenous model where the Terzaghi's problems is applied in one dimensional sample. The aim is to test Rhea's import data material properties with different layers and sharp gradients. Contrasting values of hydraulic conductivities are considerated
+The Terzaghi consolidation problem may be generalised to hterogeneous, layered samples.  The aim is to test Rhea's import data material properties with different layers and sharp gradients.  Contrasting values of hydraulic conductivities are considerated
 
 | Parameter | Symbol | Value | Unit | 
 | :--- | :---: | :---:         |:---| 
 | Hydraulic conductivity layer 1 | k | 1.0E-4  | m/s |
 | Hydraulic conductivity layer 2 | k | 1.0E-8  | m/s |
 
-The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. There are three important files:
+The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. There important files are:
 
-1.-  `test/tests/terzaghi/Workflow_TerzaghiImportDataLayers.ipynb`. [Jupyter notebook](https://jupyter.org/) that creates the files containig the different properties that are going to be allocated by RHEA. The files created are `K.data`, `p.data`, `L.data` and `G.data`.
+1.  `test/tests/terzaghi_layers/Workflow_TerzaghiImportDataLayers.ipynb`. [Jupyter notebook](https://jupyter.org/) that creates the files containing the sptially-varying properties that are going to be used by RHEA. The files created are `K.data`, `p.data`, `L.data` and `G.data`.
 
-2.- `test/tests/terzaghi/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `rhea-opt -i TerzaghiImportData.i`.
-
-3.- `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the semi analytical solution derived by (Hickson et al., 2009).
+2. `test/tests/terzaghi_layers/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportDataLayers.i`.
 
 ![Image](test/tests/terzaghi_layers/TerzaghisImportDataLayers.png)
 
@@ -126,4 +124,4 @@ Hickson, R., Barry, S., and Mercer, G.: Critical times in multilayer diffusion. 
 
 ## Cite
 
-paper
+Paper to be added.
