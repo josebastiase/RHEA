@@ -1,32 +1,60 @@
-![Image](images/RHEA1.png)
+<p align="center">
+ <img src="images/RHEA1.png" width="1200" height="300">
+</p>
 
-DESCRIPTION OF RHEA BY JOSE
+## A verified numerical simulator for hydro-geomechanical heterogeneity based on [MOOSE](https://mooseframework.inl.gov/)
 
-RHEA is an App of the [MOOSE framework](https://github.com/idaholab/moose).  To use RHEA, you will need to have [installed MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html), which can take some time.
+
+## About
+
+RHEA (Real HEterogeneity App), is an open-source fully coupled finite element application capable of including element-resolution hydro-geomechanical properties in coupled simulations. The code was developed by [José Bastías](https://ingeo.agw.kit.edu/21_99.php) and [Andy Wilkins](https://research.csiro.au/mgt/andy-wilkins/) in collaboration between Karlsruhe Institute of Technology (KIT) and Commonwealth Scientific and Industrial Research Organisatio (CSIRO).
+
+RHEA is a MOOSE based application, for more information visit [MOOSE Framework](https://mooseframework.inl.gov/). To use RHEA, you will need to have [installed MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html), which can take some time.
 
 RHEA is released under the GNU Lesser General Public License Version 2.1.  See the [LICENSE](LICENSE) file for details.
 
-# Compilation
+## Getting started
 
-BY JOSE
+For system requirements and MOOSE installation visit [Getting Started](https://mooseframework.inl.gov/getting_started/installation/index.html) page of the MOOSE framework.
 
-# Testing RHEA
+### Clone RHEA
 
-After compilation, navigate to the top-level directory (usually `~/projects/RHEA/`) and run the tests using the command
+The stable version of RHEA can be cloned directly for the GitHub repository. As usual in any MOOSE based app, RHEA will be located by default in the `cd ~/projects` foulder generated during the installation of MOOSE.
 
 ```
+cd ~/projects
+git clone https://github.com/josebastiase/RHEA.git
+cd ~/projects/RHEA
+git checkout master
+
+```
+
+### Compile and test RHEA
+
+As any MOOSE based app, you first need to compile RHEA 
+
+```
+cd ~/projects/RHEA
+make -j4
+
+```
+
+and then test RHEA
+
+```
+cd ~/projects/RHEA
 ./run_tests
-```
 
+```
 If RHEA has compiled successfully, you should see various output, ending with the line
 
 ```
 2 passed, 0 skipped, 0 pending, 0 failed
 ```
 
-# Examples
+## Examples
 
-## Terzaghi consolidation
+### Terzaghi consolidation
 
 Consolidation of a soil sample due to an external load was studied by Terzaghi.  JOSE TO FILL IN DETAILS.
 
@@ -40,7 +68,7 @@ The RHEA files for this scenario are found in `test/tests/terzaghi/`.  There are
 
 PERHAPS JOSE WANTS TO REPLACE THIS FIG WITH THE NICE ONE IN THE PAPER.  IN THIS CASE, YOU SHOULD MODIFY plot_results.py accordingly, i think
 
-## Consolidation of a heterogeneous sample
+### Consolidation of a heterogeneous sample
 
 The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`.
 
