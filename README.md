@@ -26,7 +26,6 @@ cd ~/projects
 git clone https://github.com/josebastiase/RHEA.git
 cd ~/projects/RHEA
 git checkout master
-
 ```
 
 ### Compile and test RHEA
@@ -36,7 +35,6 @@ As any MOOSE based app, you first need to compile RHEA
 ```
 cd ~/projects/RHEA
 make -j4
-
 ```
 
 and then test RHEA
@@ -44,7 +42,6 @@ and then test RHEA
 ```
 cd ~/projects/RHEA
 ./run_tests
-
 ```
 If RHEA has compiled successfully, you should see various output, ending with the line
 
@@ -54,19 +51,49 @@ If RHEA has compiled successfully, you should see various output, ending with th
 
 ## Examples
 
-### Terzaghi consolidation
+### Terzaghi's problem
 
-Consolidation of a soil sample due to an external load was studied by Terzaghi.  JOSE TO FILL IN DETAILS.
+In Terzaghi’s original theoretical work, which was inspired by the measurements of delayed deformations in a compression test on a clay sample, the pore fluid and the soil particles were both assumed to be incompressible, so that the only mechanism of deformation was a rearrangement of the particles. In modern presentations, these assumptions are no longer made, and this generalised theory will be used here. The relevant parameters used in this model are listed here
+
+Hydraulic properties
+
+| Parameter | Symbol | Value | Unit | 
+| :--- | :---: | :---:         |:---| 
+| Hydraulic conductivity | k | 1.0E-4  | m/s |
+| Porosity | n | 0.2 | - |
+
+Mechanical properties
+
+| Parameter | Symbol | Value | Unit | 
+| :--- | :---: | :---:         |:---| 
+| Shear modulus | G | 6.25E7 | Pa |
+| Bulk modulus| K | 8.4E7 | Pa |
+| Biot's coefficient | a | 0.9 | - |
+
+Fluid properties
+
+| Parameter | Symbol | Value | Unit | 
+| :--- | :---: | :---:         |:---| 
+| Water bulk modulus| K_f | 2.2E7 | Pa |
+| Volumetric weigth | y | 1.0E4 | m/s  |
+
+System's characteristics
+
+| Parameter | Symbol | Value | Unit | 
+| :--- | :---: | :---:         |:---| 
+| Load| q | 1.0E3 | Pa |
+| System's depth | h | 1.0E2 | m |
+| time| t | - | s |
 
 The RHEA files for this scenario are found in `test/tests/terzaghi/`.  There are three important files:
 
-- `test/tests/terzaghi/Workflow_TerzaghiImportData.ipynb`.  This is a [Jupyter notebook](https://jupyter.org/) that creates files that define the hydraulic conductivity, porosity, bulk modulus and shear modulus throughout the Terzaghi soil sample.  In this case, these properties are homogeneous.  The files created are `K.data`, `p.data`, `L.data` and `G.data` (which are part of this repository, so you don't need to create them yourself).
-- `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `rhea-opt -i TerzaghiImportData.i`.
-- `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
+1.-  `test/tests/terzaghi/Workflow_TerzaghiImportData.ipynb`.  This is a [Jupyter notebook](https://jupyter.org/) that creates files that define the hydraulic conductivity, porosity, bulk modulus and shear modulus throughout the Terzaghi soil sample.  In this case, these properties are homogeneous.  The files created are `K.data`, `p.data`, `L.data` and `G.data` (which are part of this repository, so you don't need to create them yourself).
+
+2.- `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `rhea-opt -i TerzaghiImportData.i`.
+
+3.- `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
 
 ![Image](test/tests/terzaghi/terzaghi_p.png)
-
-PERHAPS JOSE WANTS TO REPLACE THIS FIG WITH THE NICE ONE IN THE PAPER.  IN THIS CASE, YOU SHOULD MODIFY plot_results.py accordingly, i think
 
 ### Consolidation of a heterogeneous sample
 
