@@ -91,7 +91,7 @@ The RHEA files for this scenario are found in `test/tests/terzaghi/`. There are 
 
 2. `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportData.i`.
 
-3. `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi:
+3. `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi, as shown below.  If you require more precise agreement, simply decrease the time-step size in `TerzaghiImportData.i`.
 
 <p align="center">
  <img src="test/tests/terzaghi/Terzaghis_problem.png">
@@ -107,11 +107,14 @@ The Terzaghi consolidation problem may be generalised to hterogeneous, layered s
 | Hydraulic conductivity layer 1 | k | 1.0E-4  | m/s |
 | Hydraulic conductivity layer 2 | k | 1.0E-8  | m/s |
 
-The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. There important files are:
+The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. The important files are:
 
 1.  `test/tests/terzaghi_layers/Workflow_TerzaghiImportDataLayers.ipynb`. [Jupyter notebook](https://jupyter.org/) that creates the files containing the sptially-varying properties that are going to be used by RHEA. The files created are `K.data`, `p.data`, `L.data` and `G.data`.
 
 2. `test/tests/terzaghi_layers/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportDataLayers.i`.
+
+3. `test/tests/terzaghi_layers/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Hickson et al., as shown below.  If you require more precise agreement, simply decrease the time-step size in `TerzaghiImportDataLayers.i`.
+
 
 <p align="center">
  <img src="test/tests/terzaghi_layers/Terzaghis_problem_layers.png">
