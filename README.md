@@ -7,7 +7,7 @@
 
 ## About
 
-RHEA (Real HEterogeneity App), is an open-source fully coupled finite element application capable of including element-resolution hydro-geomechanical properties in coupled simulations. The code was developed by [José Bastías](https://ingeo.agw.kit.edu/21_99.php) with small additions from [Andy Wilkins](https://research.csiro.au/mgt/andy-wilkins/) in a collaboration between Karlsruhe Institute of Technology (KIT) and the Commonwealth Scientific and Industrial Research Organisatio (CSIRO).
+RHEA (Real HEterogeneity App), is an open-source fully coupled finite element application capable of including element-resolution hydro-geomechanical properties in coupled simulations. The code was developed by [José Bastías](https://ingeo.agw.kit.edu/21_99.php) with small additions from [Andy Wilkins](https://research.csiro.au/mgt/andy-wilkins/) in a collaboration between Karlsruhe Institute of Technology (KIT) and the Commonwealth Scientific and Industrial Research Organisation (CSIRO).
 
 RHEA is a MOOSE based application, for more information visit [MOOSE Framework](https://mooseframework.inl.gov/). To use RHEA, you will need to have [installed MOOSE](https://mooseframework.inl.gov/getting_started/installation/index.html), which can take some time.
 
@@ -19,13 +19,12 @@ For system requirements and MOOSE installation visit [Getting Started](https://m
 
 ### Clone RHEA
 
-The stable version of RHEA can be cloned directly for the GitHub repository. As usual in any MOOSE based app, RHEA will be located by default in the `cd ~/projects` foulder generated during the installation of MOOSE.
+The stable version of RHEA can be cloned directly for the GitHub repository. As usual in any MOOSE based app, RHEA will be located by default in the `cd ~/projects` folder generated during the installation of MOOSE.
 
 ```
 cd ~/projects
 git clone https://github.com/josebastiase/RHEA.git
 cd ~/projects/RHEA
-git checkout master
 ```
 
 ### Compile and test RHEA
@@ -89,7 +88,7 @@ The RHEA files for this scenario are found in `test/tests/terzaghi/`. There are 
 
 1.  `test/tests/terzaghi/Workflow_TerzaghiImportData.ipynb`.  This is a [Jupyter notebook](https://jupyter.org/) that creates files that define the hydraulic conductivity, porosity, bulk modulus and shear modulus throughout the Terzaghi soil sample.  In this case, these properties are homogeneous.  The files created are `K.data`, `p.data`, `L.data` and `G.data` (which are part of this repository, so you don't need to create them yourself).
 
-2. `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportData.i`.
+2. `test/tests/terzaghi/TerzaghiImportData.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `cd ~/projects/RHEA/test/tests/terzaghi ; ../../../rhea-opt -i TerzaghiImportData.i`.
 
 3. `test/tests/terzaghi/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Terzaghi, as shown below.  If you require more precise agreement, simply decrease the time-step size in `TerzaghiImportData.i`.
 
@@ -111,7 +110,7 @@ The RHEA files for this scenario are found in `test/tests/terzaghi_layers/`. The
 
 1.  `test/tests/terzaghi_layers/Workflow_TerzaghiImportDataLayers.ipynb`. [Jupyter notebook](https://jupyter.org/) that creates the files containing the sptially-varying properties that are going to be used by RHEA. The files created are `K.data`, `p.data`, `L.data` and `G.data`.
 
-2. `test/tests/terzaghi_layers/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `../../../rhea-opt -i TerzaghiImportDataLayers.i`.
+2. `test/tests/terzaghi_layers/TerzaghiImportDataLayers.i`.  This is the RHEA input file.  Run it using the `rhea-opt` executable you created during compilation: `cd ~/projects/RHEA/test/tests/terzaghi_layers ; ../../../rhea-opt -i TerzaghiImportDataLayers.i`.
 
 3. `test/tests/terzaghi_layers/plot_results.py`.  This is a python file that plots the results, demonstrating agreement between RHEA and the analytical formulae derived by Hickson et al., as shown below.  If you require more precise agreement, simply decrease the time-step size in `TerzaghiImportDataLayers.i`.
 
