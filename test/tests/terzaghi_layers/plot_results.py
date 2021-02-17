@@ -24,11 +24,11 @@ matplotlib.rcParams['figure.subplot.hspace'] = 0.3
 matplotlib.rcParams['figure.subplot.bottom'] = 0.2
 matplotlib.rcParams['figure.subplot.right'] = 1
 matplotlib.rcParams['figure.subplot.top'] = 0.85
-matplotlib.rcParams['axes.labelsize'] = 15
-matplotlib.rcParams['axes.titlesize'] = 15
+matplotlib.rcParams['axes.labelsize'] = 22
+matplotlib.rcParams['axes.titlesize'] = 22
 matplotlib.rcParams['font.family'] = 'serif'
 matplotlib.rcParams['mathtext.fontset'] = 'stix'
-matplotlib.rcParams['font.size'] = 15
+matplotlib.rcParams['font.size'] = 22
 
 ## Mechanical functions
 
