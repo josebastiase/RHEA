@@ -131,4 +131,4 @@ Hickson, R., Barry, S., and Mercer, G.: Critical times in multilayer diffusion. 
 
 ## Cite
 
-Paper to be added.
+Bastías Espejo, J. M., Wilkins, A., Rau, G., & Blum, P. (2021). RHEA v1. 0: Enabling fully coupled simulations with hydro-geomechanical heterogeneity. Geoscientific Model Development Discussions, 1-21.
