@@ -2,11 +2,6 @@
 
 #include "ComputeElasticityTensorBase.h"
 
-class IsotropicElasticModulusFromVar;
-
-template <>
-InputParameters validParams<IsotropicElasticModulusFromVar>();
-
 /**
  * Defines an elastic tensor for the model.
  * The elastic tensor is assumed isotropic, so it is defined by its bulk modulus and shear modulus.
@@ -19,6 +14,8 @@ class IsotropicElasticModulusFromVar : public ComputeElasticityTensorBase
 {
 public:
   IsotropicElasticModulusFromVar(const InputParameters & parameters);
+
+  static InputParameters validParams();
 
 protected:
   virtual void computeQpElasticityTensor() override;
