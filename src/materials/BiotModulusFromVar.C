@@ -1,6 +1,6 @@
 #include "BiotModulusFromVar.h"
 
-registerMooseObject("PorousFlowApp", BiotModulusFromVar);
+registerMooseObject("RHEAApp", BiotModulusFromVar);
 
 InputParameters
 BiotModulusFromVar::validParams()

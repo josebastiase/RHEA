@@ -1,6 +1,6 @@
 #include "IsotropicElasticModulusFromVar.h"
 
-registerMooseObject("TensorMechanicsApp", IsotropicElasticModulusFromVar);
+registerMooseObject("RHEAApp", IsotropicElasticModulusFromVar);
 
 InputParameters
 IsotropicElasticModulusFromVar::validParams()
