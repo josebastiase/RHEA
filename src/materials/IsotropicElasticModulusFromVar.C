@@ -1,12 +1,11 @@
 #include "IsotropicElasticModulusFromVar.h"
 
-registerMooseObject("TensorMechanicsApp", IsotropicElasticModulusFromVar);
+registerMooseObject("RHEAApp", IsotropicElasticModulusFromVar);
 
-template <>
 InputParameters
-validParams<IsotropicElasticModulusFromVar>()
+IsotropicElasticModulusFromVar::validParams()
 {
-  InputParameters params = validParams<ComputeElasticityTensorBase>();
+  InputParameters params = ComputeElasticityTensorBase::validParams();
   params.addClassDescription("Compute a isotropic, heterogeneous elasticity tensor using the "
 			     "spatially-varying bulk_modulus and shear_modulus values.");
   params.addRequiredCoupledVar("bulk_modulus", "The bulk modulus for the material, which can "
